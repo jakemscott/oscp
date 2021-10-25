@@ -4,26 +4,31 @@
 Everything needs (CTRL+b) before selecting anything below
 
 ### Spliting the window
-% -> (left/right)
-" -> (top/bottom)
+
+- % -> (left/right)
+- " -> (top/bottom)
 
 ### Choosing panes
-o -> Shift panes
-; -> Go back to last pane
-q -> Display pane numbers
-x -> Kill the pane
+
+- o -> Shift panes
+- ; -> Go back to last pane
+- q -> Display pane numbers
+- x -> Kill the pane
 
 ### Changing Windows
-0-9 -> Choose window
-p -> Change to the previous window
+
+- 0-9 -> Choose window
+- p -> Change to the previous window
 
 ### Job Control
-CTRL + Z -> background and suspend
-bg -> resume background
-& -> (at end of command = send to background)
-fg % [job no.] -> bring job number to the front
-jobs -> list all of the running background jobs in session
+
+- CTRL + Z -> background and suspend
+- bg -> resume background
+- & -> (at end of command = send to background)
+- fg % [job no.] -> bring job number to the front
+- jobs -> list all of the running background jobs in session
 
 ### File Manipulation
-less <filename> -> allows for scrolling
-sort <text file> | uniq > <new file>
+
+- less <filename> -> allows for scrolling
+- sort <text file> | uniq > <new file>
