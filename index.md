@@ -16,3 +16,8 @@ Overall notes for referencing:
 ## TRYHACKME
 
 - Need to transfer
+
+---------------------------------------------------------------
+## HACKTHEBOX
+
+- Need to transfer
