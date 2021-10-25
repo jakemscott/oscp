@@ -23,3 +23,7 @@ bg -> resume background
 & -> (at end of command = send to background)
 fg % [job no.] -> bring job number to the front
 jobs -> list all of the running background jobs in session
+
+### File Manipulation
+less <filename> -> allows for scrolling
+sort <text file> | uniq > <new file>
