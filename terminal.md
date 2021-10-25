@@ -32,5 +32,6 @@ Everything needs (CTRL+b) before selecting anything below
 
 Quick ways to edit and interact with files only using the termianl (not comprehensive)
 
-- less <filename> -> allows for scrolling
-- sort <text file> | uniq > <new file>
+- less <filename> (allows for scrolling)
+- sort <text file> | uniq > <new file> (sorts strings by newline and removes duplicates)
+- tail -n +<number> <file> > <newfile> (removes beginning of file)
