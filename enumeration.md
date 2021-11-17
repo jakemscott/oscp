@@ -82,6 +82,7 @@ See [Reverse Shells](/exploitation/reverse_shells) for more information.
 
 ### Check Services and Ports
 Running Ports: `ss -natu`
+    `netstat -tulpn | grep LISTEN`
 Forwarding ports through ssh: `ssh -L <local port>:<remote address>:<remote port> <username>@<address>`
 
 ### Python
@@ -145,6 +146,9 @@ Navigate to folder to share
 Install `sudo apt-get install python3-pyftpdlib`
 
 `python3 -m pyftpdlib -p 21`
+
+Pull everything in a folder:
+`wget -mbr --username="anonymous" --password="" "ftp://<address>/<folder>/*"
 
 ### Powershell
 
